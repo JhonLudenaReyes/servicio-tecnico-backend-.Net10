@@ -13,7 +13,7 @@ public class TipoService : GenericService<Tipo>, ITipoService
 
     public override async Task<IEnumerable<Tipo>> GetAllAsync()
     {
-        return await _dbSet.ToListAsync();
+        return await _context.Tipos.Where(t => t.Estado.Equals("A")).ToListAsync();
     }
 
     public override async Task<Tipo?> GetByIdAsync(int id)

@@ -22,7 +22,7 @@ public class TiposController : ControllerBase
         return Ok(tipos);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("tipo/buscar/{id}")]
     public async Task<ActionResult<Tipo>> GetById(int id)
     {
         var tipo = await _tipoService.GetByIdAsync(id);
@@ -30,14 +30,14 @@ public class TiposController : ControllerBase
         return Ok(tipo);
     }
 
-    [HttpPost]
+    [HttpPost("tipo/guardar")]
     public async Task<ActionResult<Tipo>> Create(Tipo tipo)
     {
         var created = await _tipoService.CreateAsync(tipo);
         return CreatedAtAction(nameof(GetById), new { id = created.IdTipo }, created);
     }
 
-    [HttpPut("{id}")]
+    [HttpPut("tipo/actualizar/{id}")]
     public async Task<IActionResult> Update(int id, Tipo tipo)
     {
         var result = await _tipoService.UpdateAsync(id, tipo);
@@ -45,7 +45,7 @@ public class TiposController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("tipo/eliminar/{id}")]
     public async Task<IActionResult> Delete(int id)
     {
         var result = await _tipoService.DeleteAsync(id);
