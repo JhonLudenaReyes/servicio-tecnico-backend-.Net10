@@ -58,7 +58,7 @@ public class Equipo
     public string Estado { get; set; } = "A";
 
     [ForeignKey(nameof(IdTipo))]
-    public virtual Tipo Tipo { get; set; } = null!;
+    public virtual Tipo? Tipo { get; set; }
 
     public virtual ICollection<Orden> Ordenes { get; set; } = new List<Orden>();
 }

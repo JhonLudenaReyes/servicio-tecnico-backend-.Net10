@@ -12,6 +12,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // Business Services
 builder.Services.AddScoped<IOrdenService, OrdenService>();
+builder.Services.AddScoped<IEquipoService, EquipoService>();
 builder.Services.AddScoped<ICiudadService, CiudadService>();
 builder.Services.AddScoped<ITipoService, TipoService>();
 // Register other generic services if needed, e.g.:
