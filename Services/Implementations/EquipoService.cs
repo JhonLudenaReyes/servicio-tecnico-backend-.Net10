@@ -13,7 +13,7 @@ namespace servicio_tecnico_backend.Services.Implementations
 
         public override async Task<IEnumerable<Equipo>> GetAllAsync()
         {
-            return await _context.Equipos.Where(e => e.Estado.Equals("A")).ToListAsync();
+            return await _context.Equipos.Include(e => e.Tipo).Where(e => e.Estado.Equals("A")).ToListAsync();
         }   
 
     }
